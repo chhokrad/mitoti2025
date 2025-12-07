@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MITOTI 2025 – Workshop Program</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ===== Base Reset & Typography ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #f3f4f6;
+      color: #111827;
+      line-height: 1.5;
+    }
+    a {
+      color: inherit;
+    }
+
+    /* ===== Page Layout ===== */
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header.site-header {
+      background: linear-gradient(135deg, #1e3a8a, #1d4ed8);
+      color: #f9fafb;
+      padding: 1rem 1.5rem;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+    }
+
+    .site-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .site-subtitle {
+      font-size: 0.9rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+
+    /* ===== Program Hero ===== */
+    .program-hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .program-hero h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.25rem;
+    }
+    .program-subtitle {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin: 0.25rem 0;
+    }
+    .program-meta {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 0.25rem;
+    }
+
+    /* ===== Quick Nav Pills ===== */
+    .program-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .program-nav a {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      text-decoration: none;
+      color: #1f2933;
+      background-color: #f9fafb;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+    .program-nav a:hover {
+      background-color: #e5e7eb;
+      border-color: #9ca3af;
+      transform: translateY(-1px);
+    }
+
+    /* ===== Day Heading ===== */
+    .program-day {
+      margin-bottom: 3rem;
+    }
+    .day-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #1e3a8a;
+      padding-left: 0.75rem;
+    }
+
+    /* ===== Session Cards ===== */
+    .session-card {
+      background-color: #ffffff;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .session-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .session-header h3 {
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    .session-time {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin: 0.15rem 0 0;
+    }
+    .session-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background-color: #eff6ff;
+      color: #1e3a8a;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Break Styling */
+    .session-break {
+      background: linear-gradient(90deg, #f9fafb, #eef2ff);
+      border-style: dashed;
+      border-color: #c7d2fe;
+    }
+    .session-break .session-header {
+      margin-bottom: 0;
+    }
+
+    /* ===== Talk List ===== */
+    .talk-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #f3f4f6;
+    }
+    .talk-item {
+      display: grid;
+      grid-template-columns: minmax(80px, 120px) minmax(0, 1fr);
+      gap: 0.75rem 1.25rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    .talk-item:last-child {
+      border-bottom: none;
+    }
+    .talk-time {
+      font-variant-numeric: tabular-nums;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .talk-body {
+      min-width: 0;
+    }
+    .talk-title {
+      font-size: 0.95rem;
+      margin: 0 0 0.25rem;
+    }
+    .talk-speaker {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin: 0;
+    }
+
+    /* Highlight keynotes */
+    .talk-item.keynote {
+      background-color: #f9fafb;
+      border-radius: 0.5rem;
+      padding-inline: 0.75rem;
+    }
+    .talk-item.keynote .talk-title {
+      font-weight: 600;
+    }
+
+    /* ===== Keynotes Section ===== */
+    .keynote-section {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2rem;
+    }
+    .keynote-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .keynote-card {
+      background-color: #ffffff;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
+    }
+    .keynote-card h3 {
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .keynote-speaker {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
+
+    /* details/summary styling */
+    .keynote-details {
+      margin-bottom: 0.75rem;
+    }
+    .keynote-details:last-child {
+      margin-bottom: 0;
+    }
+    .keynote-details > summary {
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      list-style: none;
+    }
+    .keynote-details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .keynote-details > summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 0.4rem;
+      transition: transform 0.15s ease;
+    }
+    .keynote-details[open] > summary::before {
+      transform: rotate(90deg);
+    }
+    .keynote-details p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== Footer ===== */
+    footer.site-footer {
+      font-size: 0.8rem;
+      color: #6b7280;
+      padding: 1rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 768px) {
+      main {
+        padding-inline: 2rem;
+      }
+      .program-hero h1 {
+        font-size: 2.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Top Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div>
+          <h1 class="site-title">MITOTI 2025</h1>
+          <p class="site-subtitle">
+            Workshop on Middleware and Tools for IT/OT Integration
+          </p>
+        </div>
+        <p class="site-subtitle">
+          Co-located with IEEE ISORC 2025, Nashville, TN, USA
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="program-page">
+
+        <!-- Hero / Title -->
+        <header class="program-hero">
+          <h1>Workshop Program</h1>
+          <p class="program-subtitle">
+            Tuesday, December 16, 2025 &middot; Vanderbilt University &middot; Nashville, TN, USA
+          </p>
+          <p class="program-meta">
+            Times are in Central Standard Time (CST)
+          </p>
+        </header>
+
+        <!-- Quick navigation -->
+        <nav class="program-nav">
+          <a href="#session-1">Session 1</a>
+          <a href="#break-1">Break</a>
+          <a href="#session-2">Session 2</a>
+          <a href="#lunch">Lunch</a>
+          <a href="#session-3">Session 3</a>
+          <a href="#break-2">Break</a>
+          <a href="#session-4">Session 4</a>
+          <a href="#keynotes">Keynotes</a>
+        </nav>
+
+        <!-- Day label -->
+        <section class="program-day">
+          <h2 class="day-heading">Tuesday, December 16, 2025</h2>
+
+          <!-- Session 1 -->
+          <article id="session-1" class="session-card">
+            <header class="session-header">
+              <div>
+                <h3>Session 1</h3>
+                <p class="session-time">8:30 AM &ndash; 10:00 AM</p>
+              </div>
+              <span class="session-label">Morning</span>
+            </header>
+
+            <ul class="talk-list">
+              <li class="talk-item">
+                <div class="talk-time">08:30 &ndash; 08:45</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">Welcome and Agenda Overview</h4>
+                </div>
+              </li>
+
+              <li class="talk-item keynote">
+                <div class="talk-time">08:45 &ndash; 09:30</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Keynote: The Role of Web Assembly in IT/OT Integration
+                  </h4>
+                  <p class="talk-speaker">
+                    Chris Woods (Senior Key Expert, Siemens)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">09:30 &ndash; 10:00</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    LLM-Assisted Robotic Trajectory Generation in PLC Environments
+                  </h4>
+                  <p class="talk-speaker">
+                    C. Ding, Z. Min, T. Cui (Siemens Corporation)
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Break 1 -->
+          <article id="break-1" class="session-card session-break">
+            <div class="session-header">
+              <h3>Break</h3>
+              <p class="session-time">10:00 AM &ndash; 10:30 AM</p>
+            </div>
+          </article>
+
+          <!-- Session 2 -->
+          <article id="session-2" class="session-card">
+            <header class="session-header">
+              <div>
+                <h3>Session 2</h3>
+                <p class="session-time">10:30 AM &ndash; 12:00 PM</p>
+              </div>
+              <span class="session-label">Morning</span>
+            </header>
+
+            <ul class="talk-list">
+              <li class="talk-item">
+                <div class="talk-time">10:30 &ndash; 11:00</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Security in Converged IT-OT Manufacturing Systems: Challenges and Opportunities
+                  </h4>
+                  <p class="talk-speaker">
+                    F. Frick, P. Neher, A. Lechler (University of Stuttgart),
+                    B. Ward, D. Balasubramanian, A. Gokhale (Vanderbilt University)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">11:00 &ndash; 11:30</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Challenges and Opportunities in Secure Real-Time Digital Twin Systems
+                    for AR/VR-Enabled Smart Factories
+                  </h4>
+                  <p class="talk-speaker">
+                    Z. Min (Siemens Corporation), R. Shetty (OPEX Systems),
+                    S. Shekhar (Siemens Corporation), A. Chhokra (Vanderbilt University),
+                    M. Kritzler, T. Cui, A. Gupta, T. Ahlgrim (Siemens Corporation),
+                    J. Reed (Virginia Tech), A. Gokhale (Vanderbilt University)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">11:30 &ndash; 11:50</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Agent Shadowing: Edge-Driven Seamless Integration for Edge and Cloud AI Agents
+                  </h4>
+                  <p class="talk-speaker">
+                    M. Sarkar, A. Todkar, J. Solanki (Siemens Corporation)
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Lunch -->
+          <article id="lunch" class="session-card session-break">
+            <div class="session-header">
+              <h3>Lunch</h3>
+              <p class="session-time">12:00 PM &ndash; 1:30 PM</p>
+            </div>
+          </article>
+
+          <!-- Session 3 -->
+          <article id="session-3" class="session-card">
+            <header class="session-header">
+              <div>
+                <h3>Session 3</h3>
+                <p class="session-time">1:30 PM &ndash; 3:00 PM</p>
+              </div>
+              <span class="session-label">Afternoon</span>
+            </header>
+
+            <ul class="talk-list">
+              <li class="talk-item keynote">
+                <div class="talk-time">01:30 &ndash; 02:15</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Keynote: The Digital Fabric of Resilience:
+                    Integrating IoT, IT, and OT for the Cyber-Power Grid
+                  </h4>
+                  <p class="talk-speaker">
+                    Prof. Anurag K. Srivastava (West Virginia University &amp; PNNL)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">02:15 &ndash; 02:35</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    HIL-RESIST: Hardware-In-the-Loop Testbed for RESilience Evaluation
+                    Against Integrated System Threats in Power Systems
+                  </h4>
+                  <p class="talk-speaker">
+                    A. Chhokra (Vanderbilt University), S. Shekhar, S. Bhela,
+                    U. Muenz (Siemens Corporation)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">02:35 &ndash; 02:55</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    An LLM-based Semantic Middleware for Energy Asset as a Service (EAaaS)
+                  </h4>
+                  <p class="talk-speaker">
+                    S. Shekhar, W. Mccafferty (Siemens Corporation)
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Break 2 -->
+          <article id="break-2" class="session-card session-break">
+            <div class="session-header">
+              <h3>Break</h3>
+              <p class="session-time">3:00 PM &ndash; 3:30 PM</p>
+            </div>
+          </article>
+
+          <!-- Session 4 -->
+          <article id="session-4" class="session-card">
+            <header class="session-header">
+              <div>
+                <h3>Session 4</h3>
+                <p class="session-time">3:30 PM &ndash; 5:00 PM</p>
+              </div>
+              <span class="session-label">Afternoon</span>
+            </header>
+
+            <ul class="talk-list">
+              <li class="talk-item">
+                <div class="talk-time">03:30 &ndash; 04:00</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    MDMWARE: Model-Driven Domain-Specific Middleware as a Tool
+                    for IT/OT Integration in the Context of Smart Cities
+                  </h4>
+                  <p class="talk-speaker">
+                    P. Melo, F. Costa (Universidade Federal de Goiás)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">04:00 &ndash; 04:20</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">
+                    Knowledge-Graph-Centric Architecture for Reliable Fault Diagnosis
+                  </h4>
+                  <p class="talk-speaker">
+                    Z. Min, A. Bres, G. Markov, A. Krystallidis, A. Neufeld,
+                    C. Budnik, H. Degen (Siemens Corporation)
+                  </p>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">04:20 &ndash; 04:50</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">Open Discussion: The Future of IT/OT</h4>
+                </div>
+              </li>
+
+              <li class="talk-item">
+                <div class="talk-time">04:50 &ndash; 05:00</div>
+                <div class="talk-body">
+                  <h4 class="talk-title">Wrap-up</h4>
+                </div>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+        <!-- Keynotes section -->
+        <section id="keynotes" class="keynote-section">
+          <h2>Keynote Speakers</h2>
+
+          <article class="keynote-card">
+            <h3>
+              The Digital Fabric of Resilience: Integrating IoT, IT, and OT
+              for the Cyber-Power Grid
+            </h3>
+            <p class="keynote-speaker">
+              Prof. Anurag K. Srivastava<br />
+              Raymond J. Lane Professor and Chairperson, Lane Department of Computer
+              Science and Electrical Engineering; Director, Smart Grid Resiliency and
+              Analytics Lab (SG-REAL), West Virginia University; Senior Scientist,
+              Pacific Northwest National Laboratory
+            </p>
+
+            <details class="keynote-details">
+              <summary>Abstract</summary>
+              <p>
+                As the electric grid evolves into a complex cyber-physical-human
+                system, the seamless integration of Information Technology (IT),
+                Operational Technology (OT), and Internet of Things (IoT) services
+                has become critical to ensure grid resilience, security, and
+                flexibility. Middleware technologies form the digital fabric that
+                interweaves these layers, enabling real-time coordination,
+                situational awareness, and distributed intelligence across the grid
+                ecosystem.
+              </p>
+              <p>
+                This talk explores how middleware and IoT-enabled services can
+                enhance cyber-power grid resilience through scalable communication,
+                computing, and control architectures. Requirements for centralized,
+                distributed, and decentralized control architectures will be
+                discussed, highlighting their implications for communication,
+                computing, reliability, and system autonomy.
+              </p>
+              <p>
+                Key topics include: (a) resilience-aware control architecture;
+                (b) example middleware including RIAPS, DCBlocks, and GridStat,
+                including fog and edge computing for distributed, time-sensitive
+                control and fault-tolerant coordination; (c) digital twins with
+                IT/OT for validating control strategies and assessing resilience
+                under cyber-physical stressors; and (d) human-in-the-loop frameworks
+                that couple operator cognition with adaptive, data-driven decision
+                support.
+              </p>
+              <p>
+                The presentation will highlight how a digitally woven,
+                middleware-enabled fabric linking IoT, IT, and OT with metrics can
+                transform the power grid into a flexible and resilient infrastructure.
+              </p>
+            </details>
+
+            <details class="keynote-details">
+              <summary>Biography</summary>
+              <p>
+                Anurag K. Srivastava holds the Raymond J. Lane Professorship and
+                serves as Chairperson of the Computer Science and Electrical
+                Engineering Department at West Virginia University. He is also an
+                adjunct professor at Washington State University and a senior
+                scientist at the Pacific Northwest National Laboratory.
+              </p>
+              <p>
+                Dr. Srivastava's research focuses on data-driven algorithms and tools
+                for cyber-resilient electric energy systems. His projects have led to
+                operational tools deployed in utility control centers and have been
+                supported by over $66M in funding from agencies including the U.S.
+                Department of Energy, National Science Foundation, Siemens, Electric
+                Power Research Institute, and other national and international
+                partners.
+              </p>
+            </details>
+          </article>
+
+          <article class="keynote-card">
+            <h3>The Role of Web Assembly in IT/OT Integration</h3>
+            <p class="keynote-speaker">
+              Chris Woods<br />
+              Senior Key Expert, Siemens
+            </p>
+
+            <details class="keynote-details">
+              <summary>Abstract</summary>
+              <p>
+                Increasingly, there is a need to run traditional IT applications on
+                OT equipment. This poses challenges: the cost of porting applications
+                to non-traditional operating systems on OT and embedded devices, the
+                security implications of allowing network access to OT equipment, and
+                the requirements to keep manufacturing equipment patched with the
+                latest updates. WebAssembly, originally developed for the Web,
+                offers solutions to many of these issues.
+              </p>
+              <p>
+                In this presentation, Chris will outline how WebAssembly works and
+                present examples of how it can address these challenges in IT/OT
+                integration.
+              </p>
+            </details>
+
+            <details class="keynote-details">
+              <summary>Biography</summary>
+              <p>
+                Chris Woods is a Senior Key Expert at Siemens, where he has been
+                leading Siemens' WebAssembly engagement. He is a leading proponent
+                of WebAssembly's use in embedded systems, a founding member of the
+                WebAssembly Research Center at Carnegie Mellon University, and
+                founder and co-chair of the WASI Embedded Special Interest Group.
+              </p>
+              <p>
+                Chris presents regularly on WebAssembly and represents Siemens on
+                WebAssembly at the W3C. He is also a contributor to the WebAssembly
+                Micro Runtime.
+              </p>
+            </details>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      &copy; 2025 MITOTI Workshop · Middleware and Tools for IT/OT Integration
+    </footer>
+  </div>
+</body>
+</html>
